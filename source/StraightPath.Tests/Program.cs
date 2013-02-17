@@ -11,7 +11,8 @@ namespace StraightPath.Tests
         static void Main()
         {
             var t = new ImportServiceTests();
-            t.GetDocumentReturnValidDocument();
+            //t.GetDocumentReturnValidDocument();
+            t.ImportDocument();
         }
     }
 }

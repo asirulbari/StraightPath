@@ -17,5 +17,13 @@ namespace StraightPath.Services.Tests
             var importService = new ImportService();
             var doucment = importService.GetDocument("quran-uthmani.xml");
         }
+
+        [Test]
+        public void ImportDocument()
+        {
+            var importService = new ImportService();
+            var document = importService.GetDocument("quran-uthmani.xml");
+            importService.Import(document);
+        }
     }
 }
