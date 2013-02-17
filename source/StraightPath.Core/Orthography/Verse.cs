@@ -9,8 +9,10 @@ namespace StraightPath.Core.Orthography
     {
         public int Id { get; set; }
 
+        public int Index { get; set; }
+
         public Chapter Chapter { get; set; }
 
-        public IEnumerable<Token> Tokens { get; set; }
+        public List<Token> Tokens { get; set; }
     }
 }

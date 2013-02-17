@@ -8,6 +8,9 @@ namespace StraightPath.Core.Orthography
     public class Token
     {
         public int Id { get; set; }
+
         public string Text { get; set; }
+
+        public Verse Verse { get; set; }
     }
 }

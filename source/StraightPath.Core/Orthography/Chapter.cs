@@ -11,6 +11,8 @@ namespace StraightPath.Core.Orthography
 
         public string Name { get; set; }
 
-        public IEnumerable<Verse> Verses { get; set; }
+        public List<Verse> Verses { get; set; }
+
+        public Document Document { get; set; }
     }
 }

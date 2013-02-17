@@ -7,6 +7,8 @@ namespace StraightPath.Core.Orthography
 {
     public class Document
     {
-        public IEnumerable<Chapter> Chapters { get; set; }
+        public int Id { get; set; }
+
+        public List<Chapter> Chapters { get; set; }
     }
 }
