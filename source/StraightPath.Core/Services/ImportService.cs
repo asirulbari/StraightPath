@@ -5,6 +5,7 @@ using System.Text;
 using StraightPath.Core.Orthography;
 using System.Xml.Serialization;
 using System.IO;
+using StraightPath.Core.Repositories;
 
 namespace StraightPath.Core.Services
 {
@@ -24,10 +25,10 @@ namespace StraightPath.Core.Services
                 var chapter = new Chapter() { Id = sura.Index, Name = sura.Name };
 
                 var verses = new List<Verse>(sura.Ayas.Count());
-
+                var index = 0;
                 foreach (var aya in sura.Ayas)
                 {
-                    var verse = new Verse() { Chapter = chapter, Id = aya.Index };
+                    var verse = new Verse() { Chapter = chapter, Id = aya.Index, Index = ++index };
                     var tokens = new List<Token>();
                     var splitTokens = aya.Text.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
                     for (int i = 1; i <= splitTokens.Count(); i++)
@@ -49,6 +50,13 @@ namespace StraightPath.Core.Services
             document.Chapters = chapters;
 
             return document;
+        }
+
+        public void Import(Document document)
+        {
+            var context = new StraightPathDbContext();
+            context.Documents.Add(document);
+            context.SaveChanges();
         }
 
         #region Serialization models

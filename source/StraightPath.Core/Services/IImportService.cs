@@ -9,5 +9,6 @@ namespace StraightPath.Core.Services
     interface IImportService
     {
         Document GetDocument(string path);
+        void Import(Document document);
     }
 }
